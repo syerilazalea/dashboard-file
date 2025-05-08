@@ -13,6 +13,7 @@ const data = [
 const COLORS = ["#10B981", "#34D399", "#6EE7B7", "#A7F3D0", "#D1FAE5"]
 
 export function HighDemandAreas() {
+  
   return (
     <div className="h-[300px] w-full text-xs">
       <ResponsiveContainer width="100%" height="100%">

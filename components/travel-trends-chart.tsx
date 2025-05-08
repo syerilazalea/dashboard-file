@@ -1,18 +1,35 @@
 "use client"
+import { useEffect, useState } from "react"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from "recharts"
 
-const data = [
-  { date: "Jan 1", value: 15.2 },
-  { date: "Jan 15", value: 14.8 },
-  { date: "Jan 29", value: 14.2 },
-  { date: "Feb 12", value: 13.5 },
-  { date: "Feb 26", value: 12.8 },
-  { date: "Mar 12", value: 12.2 },
-  { date: "Mar 26", value: 12.6 },
-  { date: "Apr 9", value: 12.1 },
-]
-
 export function TravelTrendsChart() {
+  const [data, setData] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch('https://mocki.io/v1/537d4747-d9cc-49b3-aef9-a1e6e90b38b3')
+        const json = await res.json()
+        setData(json)
+      } catch (err) {
+        console.error('Error fetching data:', err)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchData()
+  }, [])
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-[300px] w-full">
+        <div className="w-8 h-8 border-4 border-teal-400 border-t-transparent rounded-full animate-spin" />
+      </div>
+    )
+  }
+
   return (
     <div className="h-[300px] w-full">
       <ResponsiveContainer width="100%" height="100%">
