@@ -10,18 +10,18 @@ import { HighDemandAreas } from "./high-demand-areas"
 import { DateRange } from "react-date-range"
 import "react-date-range/dist/styles.css"
 import "react-date-range/dist/theme/default.css"
-import { addDays } from "date-fns"
+import { add } from "date-fns"
 
 export function DashboardPage() {
   const [dateRange, setDateRange] = useState([
     {
-      startDate: new Date("2023-01-01"),
-      endDate: new Date("2025-04-30"),
+      startDate: new Date("2025-01-01"),
+      endDate: new Date("2025-04-05"),
       key: "selection",
     },
   ])
   const [showPicker, setShowPicker] = useState(false)
-  
+
 
   return (
     <div className="flex h-screen bg-gray-50">
@@ -30,30 +30,28 @@ export function DashboardPage() {
           <div className="flex justify-between items-center mb-6">
             <h1 className="text-2xl font-semibold text-gray-800">Nakes Travel Distance Optimization</h1>
             <div className="flex items-center gap-4">
-            <div className="relative">
-  <div
-    className="flex items-center gap-2 bg-white border rounded-md px-3 py-1.5 cursor-pointer"
-    onClick={() => setShowPicker(!showPicker)}
-  >
-    <Calendar className="h-4 w-4 text-gray-500" />
-    <span className="text-sm text-gray-600">
-      {`${dateRange[0].startDate.toLocaleDateString()} - ${dateRange[0].endDate.toLocaleDateString()}`}
-    </span>
-  </div>
-  {showPicker && (
-    <div className="absolute z-10 mt-2">
-      <DateRange
-        editableDateInputs={true}
-        onChange={(item) => setDateRange([item.selection])}
-        moveRangeOnFirstSelection={false}
-        ranges={dateRange}
-        maxDate={new Date("2025-12-31")}
-      />
-    </div>
-  )}
-</div>
-
-              
+              <div className="relative">
+                <div
+                  className="flex items-center gap-2 bg-white border rounded-md px-3 py-1.5 cursor-pointer"
+                  onClick={() => setShowPicker(!showPicker)}
+                >
+                  <Calendar className="h-4 w-4 text-gray-500" />
+                  <span className="text-sm text-gray-600">
+                    {`${dateRange[0].startDate.toLocaleDateString()} - ${dateRange[0].endDate.toLocaleDateString()}`}
+                  </span>
+                </div>
+                {showPicker && (
+                  <div className="absolute right-0 z-10 mt-2">
+                    <DateRange
+                      editableDateInputs={true}
+                      onChange={(item) => setDateRange([item.selection])}
+                      moveRangeOnFirstSelection={false}
+                      ranges={dateRange}
+                      maxDate={new Date("2025-12-31")}
+                    />
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
@@ -101,6 +99,7 @@ export function DashboardPage() {
               <HighDemandAreas />
             </div>
           </div>
+          
         </div>
       </main>
     </div>

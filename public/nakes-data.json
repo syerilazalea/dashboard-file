@@ -1,0 +1,14 @@
+[
+  { "id": 1, "name": "Dr. Gita", "visits": 12, "distance": "8.2 km", "efficiency": "High" },
+  { "id": 2, "name": "Dr. Budi", "visits": 10, "distance": "10.5 km", "efficiency": "Medium" },
+  { "id": 3, "name": "Dr. Dewi", "visits": 9, "distance": "12.1 km", "efficiency": "Medium" },
+  { "id": 4, "name": "Dr. Andi", "visits": 8, "distance": "9.8 km", "efficiency": "High" },
+  { "id": 5, "name": "Dr. Gita", "visits": 12, "distance": "8.2 km", "efficiency": "High" },
+  { "id": 6, "name": "Dr. Budi", "visits": 10, "distance": "10.5 km", "efficiency": "Medium" },
+  { "id": 7, "name": "Dr. Dewi", "visits": 9, "distance": "12.1 km", "efficiency": "Medium" },
+  { "id": 8, "name": "Dr. Andi", "visits": 8, "distance": "9.8 km", "efficiency": "High" },
+  { "id": 9, "name": "Dr. Gita", "visits": 12, "distance": "8.2 km", "efficiency": "High" },
+  { "id": 10, "name": "Dr. Budi", "visits": 10, "distance": "10.5 km", "efficiency": "Medium" },
+  { "id": 11, "name": "Dr. Dewi", "visits": 9, "distance": "12.1 km", "efficiency": "Medium" },
+  { "id": 12, "name": "Dr. Andi", "visits": 8, "distance": "9.8 km", "efficiency": "High" }
+]

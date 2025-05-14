@@ -23,7 +23,7 @@ export function VisitsChart() {
     const fetchData = async () => {
       try {
         const res = await fetch('https://mocki.io/v1/00fc4e3b-103b-4388-b26f-614337660f24')
-        const json: VisitData[] = await res.json() // menambahkan tipe data untuk JSON 
+        const json: VisitData[] = await res.json() // menambah tipe data untuk JSON 
         setData(json)
       } catch (err) {
         console.error('Error fetching data:', err)

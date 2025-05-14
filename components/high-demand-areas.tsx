@@ -1,19 +1,20 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from "recharts"
-
-const data = [
-  { name: "Central Jakarta", value: 35 },
-  { name: "South Jakarta", value: 25 },
-  { name: "East Jakarta", value: 20 },
-  { name: "West Jakarta", value: 15 },
-  { name: "North Jakarta", value: 5 },
-]
 
 const COLORS = ["#10B981", "#34D399", "#6EE7B7", "#A7F3D0", "#D1FAE5"]
 
 export function HighDemandAreas() {
-  
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    fetch("/db.json")
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .catch((error) => console.error("Failed to fetch area data:", error))
+  }, [])
+
   return (
     <div className="h-[300px] w-full text-xs">
       <ResponsiveContainer width="100%" height="100%">

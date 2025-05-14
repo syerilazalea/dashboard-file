@@ -1,33 +1,41 @@
 'use client'
 
 import { ArrowUpDown } from "lucide-react"
-import { useState } from "react"
-
-const originalData = [
-  { id: 1, name: "Dr. Gita", visits: 12, distance: "8.2 km", efficiency: "High" },
-  { id: 2, name: "Dr. Budi", visits: 10, distance: "10.5 km", efficiency: "Medium" },
-  { id: 3, name: "Dr. Dewi", visits: 9, distance: "12.1 km", efficiency: "Medium" },
-  { id: 4, name: "Dr. Andi", visits: 8, distance: "9.8 km", efficiency: "High" },
-  { id: 5, name: "Dr. Gita", visits: 12, distance: "8.2 km", efficiency: "High" },
-  { id: 6, name: "Dr. Budi", visits: 10, distance: "10.5 km", efficiency: "Medium" },
-  { id: 7, name: "Dr. Dewi", visits: 9, distance: "12.1 km", efficiency: "Medium" },
-  { id: 8, name: "Dr. Andi", visits: 8, distance: "9.8 km", efficiency: "High" },
-  { id: 9, name: "Dr. Gita", visits: 12, distance: "8.2 km", efficiency: "High" },
-  { id: 10, name: "Dr. Budi", visits: 10, distance: "10.5 km", efficiency: "Medium" },
-  { id: 11, name: "Dr. Dewi", visits: 9, distance: "12.1 km", efficiency: "Medium" },
-  { id: 12, name: "Dr. Andi", visits: 8, distance: "9.8 km", efficiency: "High" },
-]
+import { useState, useEffect } from "react"
 
 const PAGE_SIZE = 5
 
 export function EfficiencyTable() {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [efficiencyFilter, setEfficiencyFilter] = useState("")
+  const [data, setData] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  const [searchTerm, setSearchTerm] = useState({})
+  const [efficiencyFilter, setEfficiencyFilter] = useState({})
   const [page, setPage] = useState(1)
 
-  const filteredData = originalData.filter((row) => {
-    const matchName = row.name.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchEff = efficiencyFilter ? row.efficiency === efficiencyFilter : true
+  useEffect(() => {
+    fetch("/nakes-data.json")
+      .then((res) => res.json())
+      .then((json) => {
+        setData(json)
+        setLoading(false)
+      })
+  }, [])
+
+  const currentSearch = searchTerm[page] || ""
+  const currentFilter = efficiencyFilter[page] || ""
+
+  const handleSearchChange = (value) => {
+    setSearchTerm(prev => ({ ...prev, [page]: value }))
+  }
+
+  const handleFilterChange = (value) => {
+    setEfficiencyFilter(prev => ({ ...prev, [page]: value }))
+  }
+
+  const filteredData = data.filter((row) => {
+    const matchName = row.name.toLowerCase().includes(currentSearch.toLowerCase())
+    const matchEff = currentFilter ? row.efficiency === currentFilter : true
     return matchName && matchEff
   })
 
@@ -41,25 +49,23 @@ export function EfficiencyTable() {
         <input
           type="text"
           placeholder="Search Nakes..."
-          value={searchTerm}
+          value={searchTerm[page] || ""}
           onChange={(e) => {
-            setSearchTerm(e.target.value)
-            setPage(1)
+            handleSearchChange(e.target.value)
           }}
           className="border px-3 py-1 rounded text-sm w-full sm:w-1/2"
         />
         <select
-          value={efficiencyFilter}
+          value={efficiencyFilter[page] || ""}
           onChange={(e) => {
-            setEfficiencyFilter(e.target.value)
-            setPage(1)
+            handleFilterChange(e.target.value)
           }}
           className="border px-2 py-1 rounded text-sm"
         >
           <option value="">All Efficiency</option>
           <option value="High">High</option>
           <option value="Medium">Medium</option>
-          <option value="Medium">Low</option>
+          <option value="Low">Low</option>
         </select>
       </div>
 
@@ -98,7 +104,9 @@ export function EfficiencyTable() {
                       className={`px-2 py-1 rounded-full text-xs font-medium ${
                         row.efficiency === "High"
                           ? "bg-emerald-100 text-emerald-700"
-                          : "bg-yellow-100 text-yellow-700"
+                          : row.efficiency === "Medium"
+                          ? "bg-yellow-100 text-yellow-700"
+                          : "bg-red-100 text-red-700"
                       }`}
                     >
                       {row.efficiency}
@@ -119,7 +127,6 @@ export function EfficiencyTable() {
 
       {/* Pagination */}
       <div className="flex justify-between items-center text-sm">
-        {/* Previous Button */}
         <button
           onClick={() => setPage((p) => Math.max(p - 1, 1))}
           disabled={page === 1}
@@ -127,12 +134,9 @@ export function EfficiencyTable() {
         >
           Previous
         </button>
-        
         <span>
           Page {page} of {totalPages}
         </span>
-
-        {/* Next Button */}
         <button
           onClick={() => setPage((p) => Math.min(p + 1, totalPages))}
           disabled={page === totalPages}
