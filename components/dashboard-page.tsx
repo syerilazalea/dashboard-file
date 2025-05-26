@@ -5,8 +5,10 @@ import { Calendar, Filter, LineChart, Route, Users } from "lucide-react"
 import { MetricCard } from "./metric-card"
 import { TravelTrendsChart } from "./travel-trends-chart"
 import { VisitsChart } from "./visits-chart"
-import { EfficiencyTable } from "./efficiency-table"
+import EfficiencyTable from "./efficiency-table"
 import { HighDemandAreas } from "./high-demand-areas"
+import { NakesTable } from "./table"
+
 import { DateRange } from "react-date-range"
 import "react-date-range/dist/styles.css"
 import "react-date-range/dist/theme/default.css"
@@ -16,7 +18,7 @@ export function DashboardPage() {
   const [dateRange, setDateRange] = useState([
     {
       startDate: new Date("2025-01-01"),
-      endDate: new Date("2025-04-05"),
+      endDate: new Date("2025-31-12"),
       key: "selection",
     },
   ])
@@ -85,21 +87,17 @@ export function DashboardPage() {
             <div className="bg-white p-4 rounded-lg border">
               <h2 className="text-lg font-medium text-gray-800 mb-1">Visits Per Nakes</h2>
               <p className="text-sm text-gray-500 mb-4">Distribution of visits among healthcare workers</p>
-              <VisitsChart />
+              <HighDemandAreas />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div>
             <div className="bg-white p-4 rounded-lg border">
               <h2 className="text-lg font-medium text-gray-800 mb-4">Nakes Travel Efficiency</h2>
               <EfficiencyTable />
             </div>
-            <div className="bg-white p-4 rounded-lg border">
-              <h2 className="text-lg font-medium text-gray-800 mb-4">High-Demand Areas</h2>
-              <HighDemandAreas />
-            </div>
           </div>
-          
+
         </div>
       </main>
     </div>

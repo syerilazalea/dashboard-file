@@ -1,14 +1,19 @@
-import { Home, Users, Map, Route, Settings } from "lucide-react"
+"use client"
+
+import { usePathname } from "next/navigation"
+import { Home, Users, Map, Route, Settings, CalendarClock } from "lucide-react"
 import Link from "next/link"
-import NavItem from "./navitem"
 
+function NavItem({ href, icon, label }: { href: string, icon: React.ReactNode, label: string }) {
+  const pathname = usePathname()
+  const active = pathname === href
 
-function NavItem({ href, icon, label, active = false }) {
   return (
     <Link
       href={href}
-      className={`flex items-center gap-3 px-3 py-2 rounded-md text-sm ${active ? "bg-emerald-50 text-emerald-600 font-medium" : "text-gray-600 hover:bg-gray-100"
-        }`}
+      className={`flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors duration-200 ${
+        active ? "bg-emerald-50 text-emerald-600 font-medium" : "text-gray-600 hover:bg-gray-100"
+      }`}
     >
       {icon}
       <span>{label}</span>
@@ -38,6 +43,7 @@ export function Sidebar() {
           <NavItem href="/area-analysis" icon={<Map size={18} />} label="Area Analysis" />
           <NavItem href="/route-optimization" icon={<Route size={18} />} label="Route Optimization" />
           <NavItem href="/settings" icon={<Settings size={18} />} label="Settings" />
+          <NavItem href="/schedule" icon={<CalendarClock size={18} />} label="Schedule" />
         </nav>
       </div>
 

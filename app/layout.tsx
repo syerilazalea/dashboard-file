@@ -15,10 +15,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex">
-        <Sidebar />
-        <main className="flex-1">{children}</main>
-      </body>
-    </html>
+  <body className="flex min-h-screen overflow-x-hidden">
+    {/* Fixed Sidebar */}
+    <div className="fixed top-0 left-0 h-screen w-10 z-50">
+      <Sidebar />
+    </div>
+
+    {/* Main Content with left padding to avoid overlapping */}
+    <main className="flex-1 ml-56">
+      {children}
+    </main>
+  </body>
+</html>
   )
 }
