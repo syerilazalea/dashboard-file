@@ -52,15 +52,15 @@ export default function FormSchedule() {
     ))
 
   return (
-    <Card className=" shadow-lg p-6">
-      <CardHeader className="bg-blue-50 p-6 rounded-t-lg">
+    <Card className="shadow-lg p-6">
+  <CardHeader className="bg-blue-50 rounded-t-lg p-6">
         <CardTitle className="text-2xl font-bold text-blue-900">Form Jadwal Nakes</CardTitle>
         <CardDescription className="text-gray-600">
           Masukkan parameter untuk menghitung dan menghasilkan jadwal nakes secara otomatis.
         </CardDescription>
       </CardHeader>
 
-      <CardContent className="bg-white p-8 space-y-10">
+       <CardContent className="bg-white p-6 space-y-10">
         <div>
           <h2 className="text-xl font-semibold text-gray-800 mb-4 mt-0">
             Pengaturan Umum

@@ -1,0 +1,10 @@
+[
+  { "count": 2, "label": "OFF" },
+  { "count": 2, "label": "HQ" },
+  { "count": 4, "label": "Shift 6" },
+  { "count": 4, "label": "Shift 7" },
+  { "count": 6, "label": "Shift 8" },
+  { "count": 4, "label": "Shift 9" },
+  { "count": 2, "label": "Shift 10" },
+  { "count": 2, "label": "Shift 11" }
+]

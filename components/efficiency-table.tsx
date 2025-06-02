@@ -124,7 +124,7 @@ export default function EfficiencyTable() {
       <div className="flex flex-col sm:flex-row sm:justify-between gap-4 mb-4">
         <input
           type="text"
-          placeholder="Search"
+          placeholder="Search Nakes..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="px-3 py-2 border border-gray-300 rounded-md text-sm w-full sm:w-1/4"
