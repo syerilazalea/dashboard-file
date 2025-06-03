@@ -1,0 +1,86 @@
+{
+  "employees": [
+    { "id": 1, "name": "Amara Wina Margareta" },
+    { "id": 2, "name": "Annisa Septiani" },
+    { "id": 3, "name": "Aulia Afra Irzami Raihan" },
+    { "id": 4, "name": "Aulia Salsabila Antori" },
+    { "id": 5, "name": "Chandra Ayu Dewanti" },
+    { "id": 6, "name": "Cory Yolanda Amela" },
+    { "id": 7, "name": "Cut Nadila Abni" },
+    { "id": 8, "name": "Deriska Jarurefa" }
+  ],
+  "schedule": {
+    "1": {
+      "28/4": "OFF",
+      "29/4": "HQ",
+      "30/4": "HQ",
+      "1/5": "Shift 6",
+      "2/5": "OFF",
+      "3/5": "Shift 6",
+      "4/5": "HQ"
+    },
+    "2": {
+      "28/4": "Shift 7",
+      "29/4": "Shift 7",
+      "30/4": "Shift 6",
+      "1/5": "OFF",
+      "2/5": "OFF",
+      "3/5": "OFF",
+      "4/5": "HQ"
+    },
+    "3": {
+      "28/4": "HQ",
+      "29/4": "Shift 8",
+      "30/4": "OFF",
+      "1/5": "Shift 8",
+      "2/5": "Shift 11",
+      "3/5": "OFF",
+      "4/5": "Shift 11"
+    },
+    "4": {
+      "28/4": "Shift 12",
+      "29/4": "OFF",
+      "30/4": "Shift 7",
+      "1/5": "Shift 7",
+      "2/5": "HQ",
+      "3/5": "HQ",
+      "4/5": "Shift 7"
+    },
+    "5": {
+      "28/4": "Shift 8",
+      "29/4": "OFF",
+      "30/4": "HQ",
+      "1/5": "Shift 8",
+      "2/5": "Shift 8",
+      "3/5": "Shift 8",
+      "4/5": "HQ"
+    },
+    "6": {
+      "28/4": "HQ",
+      "29/4": "Shift 10",
+      "30/4": "HQ",
+      "1/5": "Shift 11",
+      "2/5": "OFF",
+      "3/5": "OFF",
+      "4/5": "HQ"
+    },
+    "7": {
+      "28/4": "Shift 11",
+      "29/4": "OFF",
+      "30/4": "OFF",
+      "1/5": "Shift 11",
+      "2/5": "HQ",
+      "3/5": "Shift 12",
+      "4/5": "Shift 7"
+    },
+    "8": {
+      "28/4": "Shift 8",
+      "29/4": "Shift 7",
+      "30/4": "HQ",
+      "1/5": "Shift 6",
+      "2/5": "Shift 6",
+      "3/5": "HQ",
+      "4/5": "HQ"
+    }
+  }
+}

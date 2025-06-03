@@ -1,5 +1,6 @@
 {
   "1": {
+    "name": "Alex Johnson",
     "28/4": "OFF",
     "29/4": "HQ",
     "30/4": "HQ",
@@ -9,6 +10,7 @@
     "4/5": "HQ"
   },
   "2": {
+    "name": "Jamie Smith",
     "28/4": "Shift 1",
     "29/4": "Shift 3",
     "30/4": "Shift 3",
@@ -18,6 +20,7 @@
     "4/5": "HQ"
   },
   "3": {
+    "name": "Taylor Williams",
     "28/4": "HQ",
     "29/4": "Shift 2",
     "30/4": "OFF",
@@ -27,6 +30,7 @@
     "4/5": "Shift 2"
   },
   "4": {
+    "name": "Morgan Brown",
     "28/4": "Shift 2",
     "29/4": "OFF",
     "30/4": "Shift 1",
@@ -36,6 +40,7 @@
     "4/5": "Shift 1"
   },
   "5": {
+    "name": "Jordan Davis",
     "28/4": "Shift 2",
     "29/4": "OFF",
     "30/4": "HQ",
@@ -45,6 +50,7 @@
     "4/5": "HQ"
   },
   "6": {
+    "name": "Casey Miller",
     "28/4": "HQ",
     "29/4": "Shift 2",
     "30/4": "HQ",
@@ -54,6 +60,7 @@
     "4/5": "HQ"
   },
   "7": {
+    "name": "Riley Wilson",
     "28/4": "Shift 2",
     "29/4": "OFF",
     "30/4": "OFF",
@@ -63,6 +70,7 @@
     "4/5": "Shift 3"
   },
   "8": {
+    "name": "Avery Moore",
     "28/4": "Shift 3",
     "29/4": "Shift 3",
     "30/4": "HQ",
